@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth bg-gray-900">
       <body className="bg-gray-900 text-white font-sans">
-        <header className="bg-gray-900 text-white p-4 fixed w-full z-0"> {/* z-20 ensures navbar is on top */}
+        <header className="bg-gray-900 text-white p-4 fixed w-full z-30"> {/* Adjust z-index to ensure the navbar is on top */}
           <nav className="container mx-auto flex justify-between items-center">
             <h1 className="text-lg font-semibold">
               <Link href="/">My Portfolio</Link>
@@ -56,7 +56,7 @@ export default function RootLayout({
           )}
         </header>
 
-        <main className="pt-16 min-h-screen">{children}</main> {/* Adjust margin for header */}
+        <main className="pt-16 min-h-screen">{children}</main> {/* Adjusted margin for header */}
       </body>
     </html>
   );
