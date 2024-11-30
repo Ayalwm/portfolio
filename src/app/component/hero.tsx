@@ -53,6 +53,7 @@ export default function Hero() {
                     <Link href="https://www.linkedin.com/in/ayallinked/" target="_blank" className="bg-blue-500 p-2 rounded-full hover:bg-blue-700 transition-all">
                       LinkedIn
                     </Link>
+
                   </div>
                 </div>
               </div>
