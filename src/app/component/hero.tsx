@@ -50,11 +50,8 @@ export default function Hero() {
                   <p className="text-lg font-semibold">Let’s Connect!</p>
                   <div className="flex justify-center space-x-4">
                     {/* Interactive Links on Hover */}
-                    <Link href="https://www.linkedin.com/in/yourprofile" target="_blank" className="bg-blue-500 p-2 rounded-full hover:bg-blue-700 transition-all">
+                    <Link href="https://www.linkedin.com/in/ayallinked/" target="_blank" className="bg-blue-500 p-2 rounded-full hover:bg-blue-700 transition-all">
                       LinkedIn
-                    </Link>
-                    <Link href="#projects" className="bg-green-500 p-2 rounded-full hover:bg-green-700 transition-all">
-                      My Portfolio
                     </Link>
                   </div>
                 </div>

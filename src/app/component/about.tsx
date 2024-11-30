@@ -43,7 +43,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white py-12">
       <section className="container mx-auto px-4 space-y-12">
-        <h2 className="text-4xl font-extrabold text-center text-gray-100">About Me</h2>
+        <h2 className="mt-20 text-4xl font-extrabold text-center text-gray-100"></h2>
         <div className="space-y-6 max-w-3xl mx-auto">
           {sections.map((section, index) => (
             <div
