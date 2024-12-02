@@ -7,7 +7,7 @@ export default function Hero() {
       <div>
         <section
           id="home"
-          className="h-screen bg-gradient-to-br from-gray-500 to-purple-500 animate-gradient-x text-white flex items-center justify-center relative pt-24 z-0" // Set z-index to 0 to make it behind the nav
+          className="h-screen bg-gradient-to-br from-gray-500 to-purple-500 animate-gradient-x text-white flex items-center justify-center relative z-0" // Set z-index to 0 to make it behind the nav
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-green-500 to-teal-500 opacity-50"></div>
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg%20xmlns%3d%22http%3a//www.w3.org/2000/svg%22%20viewBox%3d%220%200%20100%20100%22%3e%3cpath%20d%3d%22M0%200h100v100H0z%22%20fill%3d%22none%22%20stroke%3d%22rgba(0%2c0%2c0%2c0.1)%22%20stroke-width%3d%221%22%3e%3c/path%3e%3c/svg%3e')]"></div>
@@ -25,7 +25,7 @@ export default function Hero() {
             <div className="flex justify-center md:justify-start">
               <Link
                 href="#projects"
-                className="bg-blue-500 text-white text-lg font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition-all"
+                className="bg-blue-500 text-white text-lg font-bold px-6 rounded-full hover:bg-blue-700 transition-all"
               >
                 See My Work
               </Link>
