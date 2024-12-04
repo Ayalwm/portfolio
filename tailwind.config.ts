@@ -1,4 +1,19 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
+
+const noScrollbarPlugin = ({ addUtilities }: { addUtilities: Function }) => {
+  addUtilities(
+    {
+      ".no-scrollbar": {
+        "scrollbar-width": "none", /* Firefox */
+        "-ms-overflow-style": "none", /* IE 10+ */
+      },
+      ".no-scrollbar::-webkit-scrollbar": {
+        display: "none", /* Chrome, Safari, Edge */
+      },
+    },
+    ["responsive", "hover"] // Optional variants
+  );
+};
 
 export default {
   content: [
@@ -14,18 +29,5 @@ export default {
       },
     },
   },
-  plugins: [
-    function ({ addUtilities }) {
-      addUtilities({
-        '.no-scrollbar': {
-          /* Hide scrollbar for modern browsers */
-          'scrollbar-width': 'none', /* Firefox */
-          '-ms-overflow-style': 'none', /* IE 10+ */
-        },
-        '.no-scrollbar::-webkit-scrollbar': {
-          display: 'none', /* Chrome, Safari, Edge */
-        },
-      });
-    },
-  ],
+  plugins: [noScrollbarPlugin],
 } satisfies Config;

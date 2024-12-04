@@ -43,7 +43,7 @@ export default function ContactPage() {
       <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-lg">
         {/* Title */}
         <h2 className="text-4xl font-bold text-center text-[#1A202C] mb-6">Get in touch</h2>
-        <p className="text-center text-[#4A5568] mb-8">Have an exciting project in mind, an internship opportunity, or just want to say hi? I'd love to hear from you! Drop me a message here!</p>
+        <p className="text-center text-[#4A5568] mb-8">Have an exciting project in mind, an internship opportunity, or just want to say hi? I&apos;d love to hear from you! Drop me a message here!</p>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="grid gap-6">
@@ -82,7 +82,7 @@ export default function ContactPage() {
               id="message"
               value={formData.message}
               onChange={handleChange}
-              rows="4"
+              rows={4}
               className="w-full px-4 py-2 bg-transparent border-b-2 border-[#18191a] focus:outline-none text-[#2D3748] text-sm"
               placeholder="Your Message"
               required
