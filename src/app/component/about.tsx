@@ -1,75 +1,60 @@
 'use client';
-import React, { useState } from "react";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
+import React from "react";
+import Image from "next/image";
 
 const About = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleAnswer = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const sections = [
-    {
-      question: "About Me",
-      answer: (
-        <>
-          I'm currently in my 4th year of Software Engineering at Bahir Dar University, and I also work as an intern at{" "}
-          <a
-            href="https://simtrak.in/"
-            className="text-blue-400 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Simtrak Solutions
-          </a>
-          .<br />
-          I’m passionate about solving real-world problems through code. I believe that technology can improve lives and bring meaningful change to the world.
-        </>
-      ),
-    },
-    {
-      question: "My Journey",
-      answer:
-        "I started my journey with web development through HTML, CSS, and JavaScript. Over time, I’ve expanded my skill set to work with modern frameworks like React and Vue.",
-    },
-    {
-      question: "My Goals",
-      answer:
-        "I’m always learning and seeking new challenges. I aim to work on projects that blend technology and creativity to improve user experiences and solve complex problems.",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-gray-900 text-white py-12">
-      <section className="container mx-auto px-4 space-y-12">
-        <h2 className="mt-20 text-4xl font-extrabold text-center text-gray-100"></h2>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white">
+      <section className="container mx-auto px-4 py-12 space-y-12">
+        <h2 className="text-4xl font-extrabold text-center text-blue-400">About Me</h2>
         <div className="space-y-6 max-w-3xl mx-auto">
-          {sections.map((section, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 rounded-lg shadow-lg transition-transform transform hover:scale-105"
-            >
-              <div
-                className="flex justify-between items-center p-5 cursor-pointer border-b border-gray-700"
-                onClick={() => toggleAnswer(index)}
+          <div className="bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-2xl transition-all transform hover:scale-105">
+            <p className="text-lg text-gray-300">
+              I'm currently in my 4th year of Software Engineering at Bahir Dar University, and I also work as an intern at{" "}
+              <a
+                href="https://simtrak.in/"
+                className="text-blue-400 hover:no-underline"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <h3 className="text-xl font-semibold">{section.question}</h3>
-                {openIndex === index ? (
-                  <ChevronUpIcon className="w-6 h-6 text-blue-400" />
-                ) : (
-                  <ChevronDownIcon className="w-6 h-6 text-gray-400" />
-                )}
-              </div>
-              <div
-                className={`overflow-hidden transition-all duration-500 ${
-                  openIndex === index ? "max-h-96 p-5" : "max-h-0"
-                }`}
+                Simtrak Solutions
+              </a>
+              .<br />
+              I’m passionate about solving real-world problems through code. I believe that technology can improve lives and bring meaningful change to the world.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-extrabold mb-6 text-center text-blue-400">Experience</h2>
+          <a
+                href="https://simtrak.in/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <p className="text-base text-gray-300">{section.answer}</p>
-              </div>
+                  <div className="bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 hover:shadow-xl transition-transform transform hover:scale-105">
+            <div className="flex-shrink-0">
+              <Image
+                src="/image/simtrak.png"
+                width={200}
+                height={200}
+                alt="Company Logo"
+                className="w-24 h-24 rounded-md"
+              />
             </div>
-          ))}
+            <div>
+              <h3 className="text-2xl font-bold text-blue-400 mb-2">
+                SDE Intern
+              </h3>
+              <p className="text-sm text-gray-400 mb-4">Simtrak Solutions | Oct 2024 - Present</p>
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
+                <li>Developing React-based software solutions with a focus on creating dynamic and responsive UI/UX designs to enhance user engagement.</li>
+                <li>Collaborating in building and integrating APIs using FastAPI to improve functionality and ensure seamless user experience.</li>
+              </ul>
+            </div>
+          </div>
+              </a>
         </div>
       </section>
     </div>

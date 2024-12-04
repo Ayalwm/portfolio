@@ -13,17 +13,17 @@ export default function HomePage() {
       <Hero/>
 
       {/* About Section */}
-      <section id="about" className="py-12 bg-gray-100 text-gray-800">
+      <section id="about" className="mt-30 text-gray-800">
         <About />
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-12 bg-white text-gray-800">
+      <section id="projects" className=" text-gray-800">
         <Projects />
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-12 bg-gray-100 text-gray-800">
+      <section id="contact" className=" text-gray-800">
         <Contact />
       </section>
 

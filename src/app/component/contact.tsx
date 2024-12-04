@@ -6,20 +6,20 @@ import emailjs from 'emailjs-com';
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    
-    // Using environment variables for sensitive data
-    const serviceID ="service_6y685fl";
-    const templateID = "template_zidxxx3";
-    const userID = "oL_ob_Zzb6cvpfTJ8";
+    const serviceID = 'service_6y685fl';
+    const templateID = 'template_zidxxx3';
+    const userID = 'oL_ob_Zzb6cvpfTJ8';
 
     emailjs.send(serviceID, templateID, formData, userID)
       .then(
@@ -27,70 +27,88 @@ export default function ContactPage() {
           console.log('SUCCESS!', response.status, response.text);
           setStatus('Message sent successfully!');
           setFormData({ name: '', email: '', message: '' });
-          console.log(formData);  // Log the form data
-
+          setIsLoading(false);
         },
         (err) => {
           console.error('FAILED...', err);
           setStatus('Failed to send message. Please try again.');
+          setIsLoading(false);
         }
       );
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-slate-700 mb-6">Contact Me</h1>
-      <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-6 rounded shadow">
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-slate-400"
-            placeholder="Your name"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-slate-400"
-            placeholder="Your email"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
-            Message
-          </label>
-          <textarea
-            id="message"
-            value={formData.message}
-            onChange={handleChange}
-            rows="4"
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-slate-400"
-            placeholder="Type your message here"
-            required
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-slate-700 text-white font-bold py-2 px-4 rounded hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400"
-        >
-          Submit
-        </button>
-        {status && <p className="mt-4 text-center text-slate-500">{status}</p>}
-      </form>
+    <div className="min-h-screen bg-[#f7f7f7] p-6 flex items-center justify-center">
+      {/* Form Card */}
+      <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-lg">
+        {/* Title */}
+        <h2 className="text-4xl font-bold text-center text-[#1A202C] mb-6">Get in touch</h2>
+        <p className="text-center text-[#4A5568] mb-8">Have an exciting project in mind, an internship opportunity, or just want to say hi? I'd love to hear from you! Drop me a message here!</p>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="grid gap-6">
+          {/* Name and Email in a row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Name Input */}
+            <div className="relative">
+              <input
+                type="text"
+                id="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-2 bg-transparent border-b-2 border-[#18191a] focus:outline-none text-[#2D3748] text-sm"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+
+            {/* Email Input */}
+            <div className="relative">
+              <input
+                type="email"
+                id="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-2 bg-transparent border-b-2 border-[#18191a] focus:outline-none text-[#2D3748] text-sm"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+          </div>
+
+          {/* Message Input */}
+          <div className="relative">
+            <textarea
+              id="message"
+              value={formData.message}
+              onChange={handleChange}
+              rows="4"
+              className="w-full px-4 py-2 bg-transparent border-b-2 border-[#18191a] focus:outline-none text-[#2D3748] text-sm"
+              placeholder="Your Message"
+              required
+            ></textarea>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full py-2 bg-[#18191a] text-white text-sm font-bold rounded-lg shadow hover:bg-[#2b6cb0] focus:outline-none transition-colors duration-300"
+          >
+            {isLoading ? 'Sending...' : 'Submit'}
+          </button>
+
+          {/* Status Message */}
+          {status && (
+            <p
+              className={`text-center mt-4 text-sm ${
+                status.includes('successfully') ? 'text-green-500' : 'text-red-500'
+              }`}
+            >
+              {status}
+            </p>
+          )}
+        </form>
+      </div>
     </div>
   );
 }
