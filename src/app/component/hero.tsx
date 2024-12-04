@@ -16,7 +16,7 @@ export default function Hero() {
           {/* Content Section */}
           <div className="relative z-10 text-center md:text-left max-w-4xl mx-4 md:mx-16 flex flex-col items-center md:items-start space-y-8">
             <h1 className="text-5xl font-bold text-slate-100">
-              Hi, I’m Ayalnesh
+              Hi, I&apos;m Ayalnesh
             </h1>
             <p className="text-xl md:text-2xl text-gray-300">
               Software Engineer
@@ -47,7 +47,7 @@ export default function Hero() {
               {/* Hover Overlay Content */}
               <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <div className="text-white text-center space-y-4">
-                  <p className="text-lg font-semibold">Let’s Connect!</p>
+                  <p className="text-lg font-semibold">Let&apos;s Connect!</p>
                   <div className="flex justify-center space-x-4">
                     {/* Interactive Links on Hover */}
                     <Link href="https://www.linkedin.com/in/ayallinked/" target="_blank" className="bg-blue-500 p-2 rounded-full hover:bg-blue-700 transition-all">
