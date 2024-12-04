@@ -8,7 +8,7 @@ export const projects = [
                 with a simple, user-friendly interface.`,
     link: "https://week7-ochre-tau.vercel.app/",
     language: "js",
-    image:"/image/sample.png"
+    image:"/image/weather.png"
   },
   {
     name: "Task Manager",
@@ -18,7 +18,7 @@ export const projects = [
                     storage to retain tasks after page refresh.`,
     link: "https://task-manager-lac-kappa.vercel.app/boards",
     language: "react",
-    image:"/image/sample.png"
+    image:"/image/task.png"
    },
   {
     name: "Poem Generator",
@@ -27,7 +27,7 @@ export const projects = [
                   it crafts charming poems for motivation, romance, or whimsy.`,
     link: "https://poem-generator-two.vercel.app/",
     language:"js",
-    image:"/image/sample.png"
+    image:"/image/poem.png"
    },
   {
       name: "TV Show",
@@ -36,7 +36,7 @@ export const projects = [
           to build dynamic, interactive web apps with modern tools.`,
       link: "https://ricky-and-morty-ashy.vercel.app/#/",
       language: "vue",
-      image:"/image/sample.png"
+      image:"/image/ricky.png"
     },
     {
       name: "Portfolio",
@@ -45,7 +45,7 @@ export const projects = [
           updates to reflect my growing skills and showcase my projects.`,
       link: "https://portfolio-gamma-nine-73.vercel.app/",
       language: "js",
-      image:"/image/sample.png"
+      image:"/image/portfolio.png"
     },
     {
       name: "order manager ",

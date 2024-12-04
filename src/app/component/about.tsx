@@ -13,7 +13,7 @@ const About = () => {
               I'm currently in my 4th year of Software Engineering at Bahir Dar University, and I also work as an intern at{" "}
               <a
                 href="https://simtrak.in/"
-                className="text-blue-400 hover:underline"
+                className="text-blue-400 hover:no-underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -25,13 +25,18 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="bg-gray-900 text-white py-16 px-8">
-        <div className="container mx-auto max-w-4xl">
+      <section className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-extrabold mb-6 text-center text-blue-400">Experience</h2>
-          <div className="bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 hover:shadow-xl transition-transform transform hover:scale-105">
+          <a
+                href="https://simtrak.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                  <div className="bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 hover:shadow-xl transition-transform transform hover:scale-105">
             <div className="flex-shrink-0">
               <Image
-                src="/path-to-company-logo.png"
+                src="/image/simtrak.png"
                 width={200}
                 height={200}
                 alt="Company Logo"
@@ -49,6 +54,7 @@ const About = () => {
               </ul>
             </div>
           </div>
+              </a>
         </div>
       </section>
     </div>

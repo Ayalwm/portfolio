@@ -20,7 +20,7 @@ export default function Projects() {
   };
 
   return (
-    <div>
+    <div className="p-10">
       <section
         id="projects"
         className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-16 relative overflow-hidden"
@@ -47,7 +47,7 @@ export default function Projects() {
             </button>
 
             {/* Projects */}
-            <div className="flex justify-center items-center relative w-full h-[70vh]">
+            <div className="flex justify-center items-center p-10 m-10 relative w-full h-[70vh] ">
               {projects.map((project, index) => {
                 const position =
                   index === currentIndex
@@ -69,18 +69,18 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className={`absolute transform transition-all duration-700 ${
                       isCenter
-                        ? "z-30 scale-100 top-0"
+                        ? "z-30 scale-120 top-0 hover:scale-105 "
                         : isSide
                         ? "z-20 scale-90 top-10"
                         : "hidden"
-                    } ${position === "left" ? "translate-x-[-70%]" : ""} ${
-                      position === "right" ? "translate-x-[70%]" : ""
+                    } ${position === "left" ? "translate-x-[-120%]" : ""} ${
+                      position === "right" ? "translate-x-[120%]" : ""
                     }`}
                     style={{ transformStyle: "preserve-3d" }}
                   >
-                    <div className="w-[50vw] h-[80vh] md:w-[30vw] bg-gray-800 rounded-lg shadow-xl overflow-hidden relative">
+                    <div className="w-[50vw] h-[80vh] md:w-[30vw] bg-gray-800 rounded-lg  overflow-hidden shadow-xl relative">
                       {/* Language Tag */}
-                      <span className="absolute top-4 right-4 bg-blue-400 text-white text-xs font-semibold rounded-full px-3 py-1 shadow-md">
+                      <span className="absolute top-4 right-4 bg-gray-800 text-white text-xs font-semibold rounded-full px-3 py-1 shadow-md">
                         {project.language}
                       </span>
 
@@ -89,21 +89,23 @@ export default function Projects() {
                         <Image
                           src={project.image}
                           alt={`${project.name} thumbnail`}
-                          width={400}
+                          width={350}
                           height={250}
                           className="w-full h-3/5 object-cover rounded-t-lg"
                         />
                       )}
 
                       {/* Project Name */}
-                      <h3 className="text-2xl font-bold text-blue-300 p-4">
+                     <div className="p-4 h-2/5 overflow-auto no-scrollbar">
+                     <h3 className="text-2xl font-bold text-blue-300 p-4">
                         {project.name}
                       </h3>
 
                       {/* Project Description */}
-                      <p className="text-gray-300 px-4 line-clamp-3">
+                      <p className="text-gray-300 px-4 line-clamp-none">
                         {project.description}
                       </p>
+                     </div>
                     </div>
                   </Link>
                 );

@@ -37,7 +37,7 @@ export default function Hero() {
             <div className="relative group w-56 h-56 md:w-80 md:h-80">
               {/* Profile Image with Hover Effects */}
               <Image
-                src="/image/image.png" // Your profile image path
+                src="/image/profile.png" // Your profile image path
                 alt="Ayalnesh's Profile"
                 width={200}
                 height={200}

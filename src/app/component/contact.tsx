@@ -42,8 +42,8 @@ export default function ContactPage() {
       {/* Form Card */}
       <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-lg">
         {/* Title */}
-        <h2 className="text-4xl font-bold text-center text-[#1A202C] mb-6">Contact Me</h2>
-        <p className="text-center text-[#4A5568] mb-8">Feel free to contact me with any inquiries or questions!</p>
+        <h2 className="text-4xl font-bold text-center text-[#1A202C] mb-6">Get in touch</h2>
+        <p className="text-center text-[#4A5568] mb-8">Have an exciting project in mind, an internship opportunity, or just want to say hi? I'd love to hear from you! Drop me a message here!</p>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="grid gap-6">
