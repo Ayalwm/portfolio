@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth bg-gray-900"> <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>Ayal</title>
   </head>
       <body className="bg-gray-900 text-white font-sans">
         <Navbar />
