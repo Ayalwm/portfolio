@@ -12,7 +12,7 @@ export default function Navbar() {
     <header className="bg-gray-900 text-white p-4 fixed w-full z-30">
       <nav className="container mx-auto flex justify-between items-center">
         <h1 className="text-lg font-semibold">
-          <Link href="/">My Portfolio</Link>
+          <Link href="/">Ayal</Link>
         </h1>
 
         {/* Desktop Navigation */}
