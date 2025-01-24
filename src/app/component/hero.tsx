@@ -31,6 +31,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="https://www.canva.com/design/DAGX9ynHlaI/2JfciXLDi1-t5weUQcXSdg/edit?utm_content=DAGX9ynHlaI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                target="_blank"
                 className="ml-3 bg-blue-500 text-white text-lg font-bold px-6 rounded-full hover:bg-blue-700 transition-all"
               >
                 Resume
