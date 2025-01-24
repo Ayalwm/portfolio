@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .toolbar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #0a1d37; /* Matches blue-900 theme */
+        padding: 15px;
+        border-radius: 8px;
+            }
+
+        .actions, .extras {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        }
+
+        button {
+        font-size: 14px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+
+        .format-button {
+        background-color: #d2691e; /* Brownish orange */
+        color: #fff;
+        }
+
+        .chat-button {
+        background-color: #1e3a8a; /* Blue */
+        color: #fff;
+        }
+
+        .submit-button {
+        background-color: #e63946; /* Red */
+        color: #fff;
+        }
+
+        button:hover {
+        opacity: 0.9;
+        transform: scale(1.05);
+        }
+  </style>
+</head>
+<body>
+    <div class="toolbar">
+        <div class="actions">
+          <button class="format-button">Code Block</button>
+          <button class="format-button">Highlight Text</button>
+          <button class="format-button">Unhighlight Text</button>
+        </div>
+        <div class="extras">
+          <button class="chat-button">ChatGPT</button>
+          <button class="submit-button">Submit</button>
+        </div>
+      </div>
+      
+</body>
+</html>

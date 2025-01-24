@@ -1,0 +1,78 @@
+/* General overlay styling */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content styling */
+.modal-content {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 90%;
+  padding: 24px;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h4 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: #333333;
+  font-weight: bold;
+}
+
+.modal-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.modal-content li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #555555;
+  line-height: 1.6;
+}
+
+.modal-content li span {
+  font-weight: bold;
+  color: #007bff; /* Highlight specific elements */
+}
+
+/* Button Styling */
+.acknowledge-btn {
+  margin-top: 24px;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.acknowledge-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
