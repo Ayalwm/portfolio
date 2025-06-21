@@ -7,53 +7,97 @@ import { projects } from "./projects";
 export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleChange = (direction: 'next' | 'prev') => {
-    setCurrentIndex((prevIndex) => 
-      direction === 'next' 
-        ? (prevIndex + 1) % projects.length 
-        : (prevIndex - 1 + projects.length) % projects.length
-    );
+  const nextProject = () => {
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevProject = () => {
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   return (
-    <div className="p-10">
-      <section id="projects" className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-16 relative overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 opacity-20 z-0"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+    <section id="projects" className="min-h-screen bg-gray-950 text-white py-20 px-4 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto relative z-20">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-light tracking-tight mb-4">Selected Work</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto"></div>
+        </div>
 
-        <div className="container mx-auto px-8 relative z-20">
-          <h2 className="text-4xl font-extrabold text-center text-blue-400 mb-8">My Projects</h2>
-
-          <div className="relative flex items-center justify-center">
-            <button className="absolute left-0 bg-blue-500 text-white rounded-full p-4 hover:bg-blue-600 z-30" onClick={() => handleChange('prev')}>◀</button>
-
-            {/* Carousel Container */}
-            <div className="flex justify-center items-center p-5 m-5 relative w-full h-[50vh] md:h-[60vh]">
-              {projects.map((project, index) => {
-                const position = index === currentIndex ? "center" : (index === (currentIndex + 1) % projects.length ? "right" : (index === (currentIndex - 1 + projects.length) % projects.length ? "left" : "hidden"));
-                const isCenter = position === "center";
-                const isSide = position === "left" || position === "right";
-
-                return (
-                  <Link key={index} href={project.link} target="_blank" rel="noopener noreferrer" className={`absolute transform transition-all duration-700 ${isCenter ? "z-30 scale-120 top-0 hover:scale-105" : isSide ? "z-20 scale-90 top-10" : "hidden"} ${position === "left" ? "translate-x-[-120%]" : ""} ${position === "right" ? "translate-x-[120%]" : ""}`} style={{ transformStyle: "preserve-3d" }}>
-                    <div className="w-[50vw] h-[70vh] md:w-[30vw] md:h-[50hv] bg-gray-800 rounded-lg overflow-hidden shadow-xl relative">
-                      <span className="absolute top-4 right-4 bg-gray-800 text-white text-xs font-semibold rounded-full px-3 py-1 shadow-md">{project.language}</span>
-                      {project.image && <Image src={project.image} alt={`${project.name} thumbnail`} width={350} height={250} className="w-full h-3/5 object-fit rounded-t-lg" />}
-                      <div className="p-4 h-2/5 overflow-auto no-scrollbar">
-                        <h3 className="text-2xl font-bold text-blue-300 p-4">{project.name}</h3>
-                        <p className="text-gray-300 px-4">{project.description}</p>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div className="flex items-center space-x-4">
+              <span className="text-blue-400 font-mono text-sm">0{currentIndex + 1}/0{projects.length}</span>
+              <div className="h-px bg-gray-700 flex-1"></div>
             </div>
+            
+            <h3 className="text-3xl font-medium">{projects[currentIndex].name}</h3>
+            <p className="text-gray-400 leading-relaxed max-w-lg">
+              {projects[currentIndex].description}
+            </p>
+            
+            <div className="flex flex-wrap gap-3">
+              <span className="px-3 py-1 bg-gray-800 rounded-full text-sm text-blue-300">
+                {projects[currentIndex].language}
+              </span>
+            </div>
+            
+            <div className="flex space-x-4 pt-4">
+              {projects[currentIndex].link && (
+                <Link 
+                  href={projects[currentIndex].link} 
+                  target="_blank"
+                  className="px-6 py-3 bg-transparent border border-blue-400 text-blue-400 rounded hover:bg-blue-400 hover:text-white transition-colors"
+                >
+                  View Project
+                </Link>
+              )}
+            </div>
+          </div>
 
-            <button className="absolute right-0 bg-blue-500 text-white rounded-full p-4 hover:bg-blue-600 z-30" onClick={() => handleChange('next')}>▶</button>
+          <div className="relative group">
+            <div className="relative aspect-video overflow-hidden rounded-lg shadow-2xl border border-gray-800">
+              {projects[currentIndex].image && (
+                <Image
+                  src={projects[currentIndex].image}
+                  alt={`${projects[currentIndex].name} thumbnail`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <span className="text-white text-lg font-medium">{projects[currentIndex].name}</span>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
+
+        <div className="flex justify-center mt-16 space-x-4">
+          <button 
+            onClick={prevProject}
+            className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-700 hover:bg-gray-800 transition-colors"
+            aria-label="Previous project"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button 
+            onClick={nextProject}
+            className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-700 hover:bg-gray-800 transition-colors"
+            aria-label="Next project"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-10">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-blue-900 opacity-10 blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-purple-900 opacity-10 blur-3xl"></div>
+      </div>
+    </section>
   );
 }

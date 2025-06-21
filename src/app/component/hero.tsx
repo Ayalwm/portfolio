@@ -1,73 +1,75 @@
-import React from 'react';
-import Link from "next/link";
-import Image from "next/image";
+'use client'
+import React from 'react'
+import Link from "next/link"
+import Image from "next/image"
 
 export default function Hero() {
-    return (
-      <div>
-        <section
-          id="home"
-          className="h-screen bg-gradient-to-br from-gray-500 to-purple-500 animate-gradient-x text-white flex items-center justify-center relative z-0" // Set z-index to 0 to make it behind the nav
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-green-500 to-teal-500 opacity-50"></div>
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg%20xmlns%3d%22http%3a//www.w3.org/2000/svg%22%20viewBox%3d%220%200%20100%20100%22%3e%3cpath%20d%3d%22M0%200h100v100H0z%22%20fill%3d%22none%22%20stroke%3d%22rgba(0%2c0%2c0%2c0.1)%22%20stroke-width%3d%221%22%3e%3c/path%3e%3c/svg%3e')]"></div>
-          <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-0"></div> {/* Ensure the overlay has the same z-index as the section */}
-  
-          {/* Content Section */}
-          <div className="relative z-10 text-center md:text-left max-w-4xl mx-4 md:mx-16 flex flex-col items-center md:items-start space-y-8">
-            <h1 className="text-5xl font-bold text-slate-100">
-              Hi, I&apos;m Ayalnesh
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300">
-              Software Engineer
-            </p>
-  
-            <div className="flex justify-center md:justify-start">
-              <Link
-                href="#projects"
-                className="bg-blue-500 text-white text-lg font-bold px-6 rounded-full hover:bg-blue-700 transition-all"
-              >
-                See My Work
-              </Link>
-              <Link
-                href="https://www.canva.com/design/DAGX9ynHlaI/2JfciXLDi1-t5weUQcXSdg/edit?utm_content=DAGX9ynHlaI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-                target="_blank"
-                className="ml-3 bg-blue-500 text-white text-lg font-bold px-6 rounded-full hover:bg-blue-700 transition-all"
-              >
-                Resume
-              </Link>
-            </div>
-          </div>
-  
-          {/* Interactive Image Section */}
-          <div className="absolute bottom-0 right-0">
-            <div className="relative group w-56 h-56 md:w-80 md:h-80">
-              {/* Profile Image with Hover Effects */}
-              <Image
-                src="/image/profile.png" // Your profile image path
-                alt="Ayalnesh's Profile"
-                width={200}
-                height={200}
-                className="w-full h-full rounded-full object-cover border-8 border-white shadow-lg transform transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-6"
-              />
-  
-              {/* Hover Overlay Content */}
-              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <div className="text-white text-center space-y-4">
-                  <p className="text-lg font-semibold">Let&apos;s Connect!</p>
-                  <div className="flex justify-center space-x-4">
-                    {/* Interactive Links on Hover */}
-                    <Link href="https://www.linkedin.com/in/ayallinked/" target="_blank" className="bg-blue-500 p-2 rounded-full hover:bg-blue-700 transition-all">
-                      LinkedIn
-                    </Link>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+  return (
+    <section id="home" className="min-h-screen bg-gray-950 flex items-center p-6 relative overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(30,64,175,0.1)_0%,_transparent_70%)]"></div>
+      
+      {/* Floating image - positioned more intentionally */}
+      <div className="absolute right-0 bottom-0 w-1/2 max-w-md h-3/4">
+        <div className="relative w-full h-full">
+          <Image
+            src="/image/profile.png"
+            alt="Ayalnesh"
+            fill
+            className="object-contain object-right-bottom opacity-90 hover:opacity-100 transition-opacity duration-300"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-gray-950 via-transparent to-transparent pointer-events-none"></div>
+        </div>
       </div>
-    );
-  }
-  
+
+      {/* Text content - more prominent */}
+      <div className="relative z-10 text-left max-w-2xl mx-8 md:mx-16 lg:mx-24">
+        <div className="mb-8">
+          <span className="text-blue-400 font-mono">Hello, I'm</span>
+          <h1 className="text-5xl md:text-7xl font-light text-white mt-2 mb-4 leading-tight">
+            Ayalnesh
+          </h1>
+          <div className="w-16 h-0.5 bg-gray-600 my-6"></div>
+          <p className="text-xl md:text-2xl text-gray-400 max-w-md">
+            Software Engineer crafting solutions through code and creativity.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-6">
+          <Link 
+            href="#projects"
+            className="group flex items-center text-lg text-white hover:text-blue-400 transition-colors"
+          >
+            View Projects
+            <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
+          <Link 
+            href="https://www.linkedin.com/in/ayallinked/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center text-lg text-white hover:text-blue-400 transition-colors"
+          >
+            Contact Me
+            <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h4m-4 4h4m6-6a6 6 0 01-6 6H8a6 6 0 01-6-6V8a6 6 0 016-6h4a6 6 0 016 6v4z" />
+            </svg>
+          </Link>
+          <Link 
+            href="https://www.canva.com/design/DAGX9ynHlaI/2JfciXLDi1-t5weUQcXSdg/edit"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center text-lg text-white hover:text-blue-400 transition-colors"
+          >
+            View Resume
+            <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
